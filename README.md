@@ -350,12 +350,21 @@ The application runs two background services:
 
 ## Security Considerations
 
-- Passwords are hashed using bcrypt
-- JWT tokens for authentication
-- Environment variables for sensitive data
-- API rate limiting implemented
-- Input validation on all endpoints
-- CORS configured for frontend access
+The application implements comprehensive security measures:
+
+- **Authentication**: bcrypt password hashing + JWT tokens
+- **Rate Limiting**: 
+  - General API: 100 requests/15 min per IP
+  - Authentication: 5 attempts/15 min per IP  
+  - Stock queries: 30 requests/min per IP
+- **Input Validation**: All endpoints validate and sanitize inputs
+- **SQL Injection Prevention**: Parameterized queries throughout
+- **CORS**: Configured for frontend access
+- **Environment Variables**: Sensitive data in .env (never committed)
+
+**Security Status**: ✅ CodeQL scan passed with 0 vulnerabilities
+
+For detailed security information, see [SECURITY.md](SECURITY.md).
 
 ## Legal Disclaimer
 

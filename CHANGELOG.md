@@ -5,6 +5,14 @@ All notable changes to the Stock Monitoring App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2024-02-10
+
+### Security
+- **CRITICAL**: Updated nodemailer from 6.9.7 to 7.0.7 to fix vulnerability
+  - Fixed: Email to unintended domain due to interpretation conflict
+  - CVE: Duplicate Advisory - Nodemailer security issue
+  - All dependencies now verified clean via GitHub Advisory Database
+
 ## [1.0.0] - 2024-01-15
 
 ### Added - MVP Release

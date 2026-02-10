@@ -2,9 +2,11 @@
 
 ## Security Assessment Status: ✅ PASSED
 
-Last scan: 2024-01-15
-Security tool: CodeQL
+Last scan: 2024-02-10
+Security tool: CodeQL + GitHub Advisory Database
 Result: **0 vulnerabilities found**
+
+**Latest Update**: Fixed nodemailer vulnerability (CVE) by upgrading to v7.0.7
 
 ---
 

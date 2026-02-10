@@ -13,7 +13,8 @@ const StockCard = ({ stock, watchlistId, startDate, onRemove }) => {
     // Refresh every 5 minutes
     const interval = setInterval(fetchStockData, 5 * 60 * 1000);
     return () => clearInterval(interval);
-  }, [stock.ticker]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stock.ticker, startDate]);
 
   const fetchStockData = async () => {
     try {

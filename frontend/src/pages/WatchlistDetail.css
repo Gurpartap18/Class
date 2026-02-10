@@ -1,0 +1,15 @@
+.watchlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.watchlist-header h2 {
+  margin-bottom: 10px;
+}
+
+.watchlist-period {
+  color: #666;
+  font-size: 14px;
+}

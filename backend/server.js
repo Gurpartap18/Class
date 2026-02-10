@@ -7,6 +7,7 @@ const watchlistRoutes = require('./routes/watchlist');
 const stockRoutes = require('./routes/stock');
 const alertRoutes = require('./routes/alert');
 const reportRoutes = require('./routes/report');
+const { apiLimiter, authLimiter, stockQueryLimiter } = require('./middleware/rateLimiter');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,10 +17,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.use('/api/auth', authRoutes);
+// Apply rate limiting to all API routes
+app.use('/api/', apiLimiter);
+
+// Routes with specific rate limiters
+app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/watchlist', watchlistRoutes);
-app.use('/api/stock', stockRoutes);
+app.use('/api/stock', stockQueryLimiter, stockRoutes);
 app.use('/api/alert', alertRoutes);
 app.use('/api/report', reportRoutes);
 
